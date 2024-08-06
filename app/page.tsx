@@ -17,13 +17,13 @@ export default function LoginPage() {
     const checkUser = async () => {
         if (user) {
             try {
-                const { data, error } = await supabase.from('users').select().eq('email', user.email).single();
+                const { data: { user }, error } = await supabase.auth.getUser()
                 if (error) {
                     router.replace('/');
                     return;
                 }
-                if (data) {
-                  console.log(data);
+                if (user) {
+                  console.log(user);
                   router.replace('/home');
                 } else {
                     setLoadingPage(false);
