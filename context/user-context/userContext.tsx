@@ -40,7 +40,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
           access_type: "offline",
           prompt: "consent",
         },
-        redirectTo: `http://localhost:3000/home`,
+        redirectTo: `https://recipe-book-woad-beta.vercel.app/home`,
       },
     });
   };
